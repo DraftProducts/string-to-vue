@@ -1,0 +1,7 @@
+{
+  "eslint.validate": ["javascript", "javascriptreact", "vue"],
+  "editor.tabSize": 2,
+  "files.eol": "\n",
+  "editor.detectIndentation": false,
+  "vetur.validation.template": false
+}
