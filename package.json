@@ -11,6 +11,7 @@
   },
   "scripts": {
     "lint": "eslint --ext .js,.vue src --fix",
+    "demo": "vue-cli-service serve --open demo/src/main.js",
     "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
     "build:umd": "rollup --config rollup.config.js --format umd --file dist/string-to-vue.umd.js",
     "build:es": "rollup --config rollup.config.js --format es --file dist/string-to-vue.esm.js",
@@ -39,8 +40,8 @@
     "url": "https://github.com/DraftProducts/string-to-vue/issues"
   },
   "homepage": "https://github.com/DraftProducts/string-to-vue",
-  "peerDependencies": {
-    "vue": "^2.6.12"
+  "dependencies": {
+    "vue-template-compiler": "^2.6.12"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
@@ -48,14 +49,19 @@
     "@rollup/plugin-buble": "^0.21.3",
     "@rollup/plugin-commonjs": "^19.0.0",
     "@rollup/plugin-node-resolve": "^13.0.0",
+    "@vue/cli-plugin-babel": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "babel-eslint": "^10.1.0",
+    "core-js": "^3.6.5",
     "eslint": "^7.27.0",
     "eslint-plugin-vue": "^7.10.0",
     "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
+    "node-sass": "^6.0.0",
     "rollup": "^2.50.5",
     "rollup-plugin-terser": "^7.0.2",
     "rollup-plugin-vue": "^5.1.9",
-    "vue": "^2.6.12",
-    "vue-template-compiler": "^2.6.12"
+    "sass-loader": "^10",
+    "vue": "^2.6.12"
   }
 }
