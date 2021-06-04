@@ -1,5 +1,9 @@
+<template>
+  <component v-if="component" :is="component" />
+</template>
+
 <script>
-import Vue from "vue";
+import { compileToFunctions } from "vue-template-compiler";
 
 export default {
   name: "StringToVue",
@@ -8,33 +12,33 @@ export default {
       type: String,
       default: "",
     },
+    options: {
+      type: Object,
+      default: () => ({
+        outputSourceRange: false,
+        whitespace: "preserve",
+      }),
+    },
+    components: {
+      type: Object,
+      default: () => ({}),
+    },
   },
   data() {
     return {
-      render: null,
+      component: null,
     };
   },
   watch: {
     value: {
       immediate: true,
       handler() {
-        var res = Vue.compile(this.value);
-
-        this.render = res.render;
-
-        this.$options.staticRenderFns = [];
-        this._staticTrees = [];
-
-        this.$options.staticRenderFns.push(...res.staticRenderFns);
+        var res = compileToFunctions(`<div>${this.value}</div>`, this.options);
+        this.component = Object.assign(res, {
+          components: this.components,
+        });
       },
     },
-  },
-  render(h) {
-    if (!this.render) {
-      return h("div", "rendering...");
-    } else {
-      return this.render();
-    }
   },
 };
 </script>
