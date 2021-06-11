@@ -1,6 +1,6 @@
 {
   "name": "string-to-vue",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Vue component to render string to vue fully functional component",
   "main": "dist/string-to-vue.umd.js",
   "module": "dist/string-to-vue.esm.js",
@@ -11,7 +11,7 @@
   "scripts": {
     "lint": "eslint --ext .js,.vue src --fix",
     "demo": "vue-cli-service serve --open demo/src/main.js",
-    "build": "npm run build:umd & npm run build:es & npm run build:unpkg",
+    "build": "npm run build:umd & npm run build:es",
     "build:umd": "rollup --config rollup.config.js --format umd --file dist/string-to-vue.umd.js",
     "build:es": "rollup --config rollup.config.js --format es --file dist/string-to-vue.esm.js"
   },
